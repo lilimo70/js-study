@@ -1,11 +1,14 @@
-// toMinutes関数を定義してください
-
-const toMinutes = (hour,minutes) => {
-  return hour * 60 + minutes;
+// ここから自力でチャレンジ！
+const calcPrice = (coursePrice, isFirst) => {
+  // ここに計算ロジックを書く
+let total =coursePrice;
+if (isFirst === true) {
+  total = coursePrice + 2000;
+} else {
+  total = coursePrice;
+}
+return total;
 };
-// 定数resultに、toMinutes関数の戻り値を代入してください定数3と20を引数に与えてください。
-
-const result = toMinutes(3, 20);
-// 「◯◯分」となるように、分に換算した結果を出力してください
-
-console.log(`${result}分`);
+// 最後に実行して、画面に出す
+const total = calcPrice(5000, true); 
+document.getElementById("check-out").innerText = `お会計は${total}円です`;
