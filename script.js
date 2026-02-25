@@ -1,20 +1,22 @@
-// 【課題】接骨院のフルコース判定（初回割引付き）
+// 【課題】ECサイトの送料計算システム
 // ルール：
-// 1. 基本料金（CoursePrice）を受け取る。
-// 2. もし「初めての来店（isFirst）」が true なら、1000円引きにする。
-// 3. もし「初めてではない（false）」なら、そのままの料金にする。
-// 4. 最後に、計算した合計金額を「返す（return）」。
-// 引数1: basePrice (基本料金)
-// 引数2: isFirstVisit (初診ならtrue)
+// 1. 商品の合計金額（totalAmount）を受け取る。
+// 2. もし「プレミアム会員（isPremium）」が true なら、送料は 0 円にする。
+// 3. もし「プレミアム会員ではない（false）」なら、送料 500 円にする。
+// 4. 最後に、計算した「送料（shippingFee）」のみを返す。
 
-// --- ここから下に、自分の手で書いてみましょう！ ---
-const CoursePrice = (basePrice,isFirstVisit) =>{
-    if (isFirstVisit === true){
-        return basePrice - 1000;
+// 引数1: totalAmount (商品の合計金額)
+// 引数2: isPremium (プレミアム会員ならtrue)
+
+// --- ここから下に、1から書いてみましょう！ ---
+
+const shippingFee = (totalAmount,isPremium) => {
+    if (isPremium === true){
+        return 0;
     }
     else{
-        return basePrice;
+        return 500;
     }
 }
-const result = CoursePrice(6000,true);
-console.log(`初回割引適用で、お会計は${result}です`);
+const fee = shippingFee(3000,false);
+console.log(`送料は${fee}です`);
