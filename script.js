@@ -1,20 +1,20 @@
-const calculateFee = (fee, isLate, isLunch) => {
-    // 1. もし深夜（isLate が true）なら、1000円足して「返す」
-    if (isLate) {
-        return fee + 1000;
+// 【課題】接骨院のフルコース判定（初回割引付き）
+// ルール：
+// 1. 基本料金（CoursePrice）を受け取る。
+// 2. もし「初めての来店（isFirst）」が true なら、1000円引きにする。
+// 3. もし「初めてではない（false）」なら、そのままの料金にする。
+// 4. 最後に、計算した合計金額を「返す（return）」。
+// 引数1: basePrice (基本料金)
+// 引数2: isFirstVisit (初診ならtrue)
+
+// --- ここから下に、自分の手で書いてみましょう！ ---
+const CoursePrice = (basePrice,isFirstVisit) =>{
+    if (isFirstVisit === true){
+        return basePrice - 1000;
     }
-
-    // 2. もしランチ（isLunch が true）なら、500円引いて「返す」
-    if (isLunch) {
-        return fee - 500;
+    else{
+        return basePrice;
     }
-
-    // 3. どちらでもないなら、そのままの fee を「返す」
-    return fee;
-};
-
-// 実行して結果を確認（例：5000円でランチタイムの場合）
-const baseFee = 5000;
-// ここで関数を呼び出して、結果を result に入れる
-const result = calculateFee(baseFee,false,true);
-console.log(`本日の料金は ${result} 円です`);
+}
+const result = CoursePrice(6000,true);
+console.log(`初回割引適用で、お会計は${result}です`);
