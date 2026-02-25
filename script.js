@@ -1,22 +1,26 @@
-// 【課題】ECサイトの送料計算システム
+// 【課題】会員ランク別・ポイント付与
 // ルール：
-// 1. 商品の合計金額（totalAmount）を受け取る。
-// 2. もし「プレミアム会員（isPremium）」が true なら、送料は 0 円にする。
-// 3. もし「プレミアム会員ではない（false）」なら、送料 500 円にする。
-// 4. 最後に、計算した「送料（shippingFee）」のみを返す。
+// 1. 購入金額（purchaseAmount）を受け取る。
+// 2. もし「VIP会員（isVIP）」が true なら、購入金額の 10% をポイントにする。
+// 3. もし「VIP会員ではない（false）」なら、購入金額の 1% をポイントにする。
+// 4. 最後に、計算した「付与ポイント（point）」を返す。
 
-// 引数1: totalAmount (商品の合計金額)
-// 引数2: isPremium (プレミアム会員ならtrue)
+// 引数1: purchaseAmount (購入金額)
+// 引数2: isVIP (VIPならtrue)
 
 // --- ここから下に、1から書いてみましょう！ ---
 
-const shippingFee = (totalAmount,isPremium) => {
-    if (isPremium === true){
-        return 0;
+const calculatePoints = (purchaseAmount,isVIP) => {
+    if (isVIP === true){
+        return purchaseAmount * 0.1;
     }
-    else{
-        return 500;
+    else {
+        return purchaseAmount * 0.01;
     }
 }
-const fee = shippingFee(3000,false);
-console.log(`送料は${fee}です`);
+
+// --- 動作確認（購入金額 10,000円、VIP会員の場合） ---
+// const getPoint = 関数名(10000, true);
+const getPoint = calculatePoints(10000,true);
+// console.log(`付与ポイントは${getPoint}ptです`);
+console.log(`付与ポイントは${getPoint}ptです`);
