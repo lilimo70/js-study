@@ -1,31 +1,20 @@
-class Reservation {
-    constructor(patientName, daysSinceLastVisit, age) {
-        this.patientName = patientName;
-        this.daysSinceLastVisit = daysSinceLastVisit;
-        this.age = age;
-    }
-    judgeStatus() {
-        if (this.daysSinceLastVisit >= 14) {
-            return "症状が戻っている可能性があるため、すぐに来院してください";
-        } else {
-            return "順調です。3日後に経過を見せに来てください";
-        }
-    }
-    judgeAge() {
-        if (this.age < 18) {
-            return 800;
-        } else {
-            return 1000;
-        }
-    }
+/* =========================================================
+  Progate復習：配列メソッド + コールバック関数（1時間）
+  データ：reservations（予約一覧）
+========================================================= */
 
-    printMessage() {
-        console.log(`${this.patientName}様、${this.judgeStatus()}。料金は${this.judgeAge()}円です。`);
-    }
-}
-
-const patient1 = new Reservation("佐藤さん", 30, 10);
-patient1.printMessage();
-
-const patient2 = new Reservation("鈴木さん", 80, 20);
-patient2.printMessage();
+const reservations = [
+    { id: 1, name: "なお", menu: "初診", time: "10:00", price: 3000 },
+    { id: 2, name: "たろう", menu: "再診", time: "11:30", price: 1500 },
+    { id: 3, name: "はなこ", menu: "姿勢矯正", time: "15:00", price: 4500 },
+    { id: 4, name: "なお", menu: "再診", time: "17:30", price: 1500 },
+    { id: 5, name: "けん", menu: "初診", time: "09:30", price: 3000 },
+  ];
+  
+const found = reservations.filter((reservation) => {
+    return reservation.menu === "初診";
+});
+const labels = found.map((reservation) => {
+    return `${reservation.time} ${reservation.name}"様"（${reservation.menu}）`;
+});
+console.log(labels);
