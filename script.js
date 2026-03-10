@@ -21,3 +21,4 @@ filteredReservations.forEach((reservation) => {
   totalPrice += reservation.price;
 });
 console.log("合計: " + totalPrice + "円");
+
