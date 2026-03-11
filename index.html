@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECサイト 送料計算システム</title>
+  <meta charset="utf-8">
+  <title>Modal Window</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>ECサイト・管理画面</h1>
-    <div id="check-out">
-        <p>計算結果はコンソールを確認してください</p>
-    </div>
 
-    <script src="script.js"></script>
+  <button class="open">詳細を見る</button>
+
+  <div class="overlay hidden">
+    <div class="modal">
+      <p>これはモーダルウィンドウです。</p>
+      <button class="close">閉じる</button>
+    </div>
+  </div>
+  
+  <script src="js/main.js"></script>
 </body>
 </html>
