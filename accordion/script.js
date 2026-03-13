@@ -1,13 +1,21 @@
-
 // 要インプット
-// forEach  nextElementSibling classList
-
+// forEach
+// nextElementSibling
+// classList
+// contains
 
 const questions = document.querySelectorAll('.question');
+const answers = document.querySelectorAll('.answer');
 
-questions.forEach((question) => {
-  question.addEventListener('click',() => {
+questions.forEach((question)=>{
+  question.addEventListener('click',()=>{
     const answer = question.nextElementSibling;
-    answer.classList.toggle('hidden');
+    const isHidden = answer.classList.contains('hidden');
+answers.forEach((answer)=>{
+  answer.classList.add('hidden');
+});
+if(isHidden){
+  answer.classList.remove('hidden');
+}
   });
 });
