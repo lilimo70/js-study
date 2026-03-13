@@ -1,18 +1,10 @@
+body {
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+  background-color: rgb(255, 160, 160);
+}
+
 .hidden {
   display: none;
-}
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.modal {
-  width: 300px;
-  margin: 100px auto;
-  padding: 24px;
-  background: #fff;
-  border-radius: 8px;
-  text-align: center;
 }
